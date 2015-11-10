@@ -40,9 +40,11 @@ if __name__ == '__main__':
 	temp = 0
 	for i in np.arange(y[0]): 
 		# for each predicted value take the (mean-predicted)^2
-		temp = (predict[i]-mu[24])**2
+		temp += (predict[i]-mu[24])**2
 
 	# print value: 
 	print 'R^2 = ' + str(1-(sigma[24]/temp))
+	if (1-(sigma[24]/temp)) < 0: 
+		print 'R^2 statistic is not right...'
 
 
